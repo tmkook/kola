@@ -1,16 +1,20 @@
 const winston = require('winston');
-const config = require('config');
-let log = config.get('logger');
+const config = require('./config');
+let options = config.get('app.logger');
 
 let transports = [new winston.transports.Console()];
-for (let i in log.transports) {
-    transports.push(new winston.transports.File(log.transports[i]));
+for (let i in options.transports) {
+    transports.push(new winston.transports.File(options.transports[i]));
 }
 
 const logger = winston.createLogger({
-    level: log.level,
-    silent: log.silent,
-    format: winston.format.json(),
+    level: options.level,
+    silent: options.silent,
+    format: winston.format.combine(
+        winston.format.splat(),
+        winston.format.timestamp(),
+        winston.format.json(),
+    ),
     transports: transports,
 });
 

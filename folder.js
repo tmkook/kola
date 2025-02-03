@@ -77,8 +77,8 @@ module.exports = new class folder {
      * @param {string} charset 
      * @returns {string}
      */
-    content(path, charset = 'utf-8') {
-        let content = '';
+    content(path, defaultValue = '', charset = 'utf-8') {
+        let content = defaultValue;
         if (fs.existsSync(path)) {
             content = fs.readFileSync(path, charset);
         }

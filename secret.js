@@ -10,7 +10,7 @@ module.exports = class secret {
     /**
      * 默认密钥
      */
-    key = 'default-secret-key';
+    key = process.env.APP_KEY?? '';
 
     /**
      * 设置密钥

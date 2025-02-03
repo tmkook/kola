@@ -1,7 +1,7 @@
 const ejs = require('ejs');
 const folder = require('./folder');
 
-module.exports = new class response {
+module.exports = new class view {
     json(data) {
         return { type: "application/json", body: data };
     }
@@ -14,8 +14,8 @@ module.exports = new class response {
         if (options) {
             config = Object.assign(config, options);
         }
-        let file = folder.content(folder.base('app/views/' + view + '.html'));
-        let html = ejs.render(file, data, config);
+        let content = folder.content(folder.base('app/views/' + file + '.html'));
+        let html = ejs.render(content, data, config);
         return { type: "text/html", body: html };
     }
 
