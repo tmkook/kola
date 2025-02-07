@@ -10,7 +10,7 @@ module.exports = class secret {
     /**
      * 默认密钥
      */
-    key = process.env.APP_KEY?? '';
+    key = process.env.APP_KEY ?? '';
 
     /**
      * 设置密钥
@@ -91,5 +91,10 @@ module.exports = class secret {
         } else {
             return false;
         }
+    }
+
+    password(str) {
+        let md5 = this.crypto.MD5(str);
+        return this.crypto.HmacSHA256(str, md5).toString(this.crypto.enc.Base64);
     }
 }
