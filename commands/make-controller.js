@@ -8,7 +8,7 @@ program.command('make:controller')
         //get table name
         let name = arg.toLowerCase();
         let target = folder.base('app/controllers/' + name + '.js');
-        if (!folder.fs.existsSync(file)) {
+        if (!folder.fs.existsSync(target)) {
             let stubfc = folder.root('commands/make-stubs/controller.js');
             folder.stub(target, stubfc, { controller: name });
             console.log(name + ' controller has been generated');

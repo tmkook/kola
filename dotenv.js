@@ -10,7 +10,7 @@ module.exports = new class dotenv {
         if (content && content.length > 3) {
             let lines = content.indexOf("\n") > -1 ? content.split("\n") : content.split("\r");
             for (let i = 0; i < lines.length; i++) {
-                let item = this.trim(lines[i]);
+                let item = lines[i].trim();
                 if (item == '' || item.substring(0, 2) == '//') {
                     continue;
                 }
