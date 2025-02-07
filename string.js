@@ -6,7 +6,7 @@ module.exports = new class string {
      * @param {bool} isStrong 
      * @returns {string}
      */
-    password(length, isStrong) {
+    snow(length, isStrong) {
         let result = '';
         let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         if (isStrong) {
