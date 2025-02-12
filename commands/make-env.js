@@ -8,7 +8,7 @@ program.command('make:env')
     .option('-k, --key', 'Change the APP_KEY')
     .action((options) => {
         let data = {
-            APP_KEY: string.snow(32),
+            APP_KEY: string.snow(64),
             APP_LOG: "info",
             APP_ENV: "development",
             DB_CLIENT: "msyql",

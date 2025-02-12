@@ -2,8 +2,7 @@ const folder = require('../folder');
 const string = require('../string');
 const program = require('../command');
 
-async function up(step) {
-    let logfile = folder.base('storage/sqlites/migrations.json');
+async function up(step, logfile) {
     let executed = JSON.parse(folder.content(logfile, '{}'));
     let files = folder.imports(folder.base('resource/migrations'));
     let keys = Object.keys(files);
@@ -22,8 +21,7 @@ async function up(step) {
     process.exit(1);
 }
 
-async function down(step) {
-    let logfile = folder.base('storage/sqlites/migrations.json');
+async function down(step, logfile) {
     let executed = JSON.parse(folder.content(logfile, '{}'));
     let files = folder.imports(folder.base('resource/migrations'));
     let keys = Object.keys(files);
@@ -46,13 +44,18 @@ program.command('migrate')
     .description('Migration runner')
     .argument('<string>', 'up down')
     .argument('[number]', 'Run Steps', 1)
-    .action((type, step) => {
+    .option('-r, --reset', 'Reset migration histories')
+    .action((type, step, options) => {
+        let logfile = folder.base('storage/sqlites/migrations.json');
+        if (options.reset) {
+            folder.fs.writeFileSync(logfile, '');
+        }
         switch (type) {
             case 'up':
-                up(step);
+                up(step, logfile);
                 break;
             case 'down':
-                down(step);
+                down(step, logfile);
                 break;
             default:
                 program.error('invalid type');
