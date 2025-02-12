@@ -4,10 +4,15 @@
     "crypto-js": "^4.2.0",
     "ejs": "^3.1.10",
     "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
     "koa-router": "^13.0.1",
     "koa-session": "^6.4.0",
-    "koa-bodyparser": "^4.4.1",
     "koa-static": "^5.0.0",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@node-minify/clean-css": "^9.0.1",
+    "@node-minify/core": "^9.0.2",
+    "@node-minify/uglify-js": "^9.0.1"
   }
 }
