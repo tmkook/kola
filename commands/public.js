@@ -4,8 +4,9 @@ const program = require('../command');
 program.command('public')
     .description('public symlink')
     .action(() => {
-        folder.fs.cpSync(folder.base('resource/statics'), folder.base('storage/statics'), { recursive: true, dereference: true });
-        folder.fs.symlinkSync(folder.base('storage/statics'), folder.base('public'), 'dir');
-        folder.fs.symlinkSync(folder.base('storage/uploads'), folder.base('public'), 'dir');
+        folder.fs.cpSync(folder.base('resource/assets'), folder.base('public/assets'), { recursive: true, dereference: true });
+        if (!folder.fs.existsSync(folder.base('public/uploads'))) {
+            folder.fs.symlinkSync(folder.base('storage/uploads'), folder.base('public/uploads'), 'dir');
+        }
         console.log('public successfull');
     });
