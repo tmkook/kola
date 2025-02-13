@@ -2,6 +2,7 @@ const ejs = require('ejs');
 const folder = require('./folder');
 
 module.exports = new class view {
+    ejs = ejs;
     json(data) {
         return { type: "application/json", body: data };
     }

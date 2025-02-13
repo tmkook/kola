@@ -1,5 +1,5 @@
-const folder = require('../folder');
-const program = require('../command');
+const folder = require('../core/folder');
+const program = require('../core/program');
 
 program.command('seed')
     .description('Seeder executes')

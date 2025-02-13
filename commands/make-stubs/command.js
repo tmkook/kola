@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 |
 */
-const program = require('kola/command');
+const { program } = require('kola');
 
 program.command('____name____')
     .description('____name____ Command Description')

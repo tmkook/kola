@@ -13,7 +13,7 @@ module.exports = new class folder {
      * @returns {string}
      */
     root(file) {
-        return dir.resolve(__dirname, './' + (file ?? ''));
+        return dir.resolve(__dirname, '../' + (file ?? ''));
     }
 
     /**

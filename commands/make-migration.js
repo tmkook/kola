@@ -1,6 +1,6 @@
-const folder = require('../folder');
-const string = require('../string');
-const program = require('../command');
+const folder = require('../core/folder');
+const string = require('../core/string');
+const program = require('../core/program');
 
 program.command('make:migration')
     .description('Create a Migration')

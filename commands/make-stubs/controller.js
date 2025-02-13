@@ -1,5 +1,4 @@
-const controller = require('kola/controller');
-const view = require('kola/view');
+const { controller, view } = require('kola');
 
 module.exports = class ____controller____ extends controller {
     index() {

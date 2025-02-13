@@ -1,7 +1,7 @@
-const folder = require('../folder');
-const dotenv = require('../dotenv');
-const string = require('../string');
-const program = require('../command');
+const folder = require('../core/folder');
+const dotenv = require('../core/dotenv');
+const string = require('../core/string');
+const program = require('../core/program');
 
 program.command('make:env')
     .description('Make a Dot Env File')
