@@ -1,5 +1,5 @@
-const folder = require('../core/folder');
-const program = require('../core/program');
+const folder = require('../folder');
+const program = require('../program');
 
 program.command('make:command')
     .description('Create a Command')
